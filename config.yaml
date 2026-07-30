@@ -1,0 +1,37 @@
+ai:
+  script_model: gemini
+  image_model: pollinations
+  gemini_api_key: ''
+  openai_api_key: ''
+video_conversion:
+  method: ffmpeg_effect
+  grok_headless: true
+tts:
+  engine: google
+  language: ko
+  elevenlabs_api_key: ''
+  speed: 1.0
+subtitle:
+  enabled: true
+  font: default
+  font_size: 28
+  font_color: white
+  border_color: black
+  position: bottom
+output:
+  width: 1080
+  height: 1920
+  fps: 30
+  clip_duration: 5
+  scene_count: 7
+  style_prompt: cinematic, high quality, detailed, 4k
+channels:
+- name: 채널A
+  topic: 요리
+  enabled: true
+- name: 채널B
+  topic: 건강
+  enabled: true
+- name: 채널C
+  topic: 여행
+  enabled: false

@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual Environment
+venv/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Output
+output/
+
+# FFmpeg binaries (large)
+ffmpeg/ffmpeg
+ffmpeg/ffprobe
+ffmpeg/*.exe
+ffmpeg/*.tar.*
+
+# Cache
+.cache/
