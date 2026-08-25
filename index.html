@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -15,6 +15,16 @@
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #3b3d44; }
         .glass-panel { background: rgba(20, 21, 24, 0.85); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.07); }
         .tab-btn.active { background: linear-gradient(135deg, rgba(37,99,235,0.2), rgba(236,72,153,0.2)); border-color: rgba(99,102,241,0.5); color: #fff; }
+
+        /* Sidebar Collapse styling */
+        #sidebar.collapsed { width: 5.5rem; }
+        #sidebar.collapsed .p-6 { padding-left: 1rem; padding-right: 1rem; }
+        #sidebar.collapsed .sidebar-text { display: none; }
+        #sidebar.collapsed .tab-btn { justify-content: center; padding-left: 0; padding-right: 0; }
+        #sidebar.collapsed #sidebarToggleIcon { transform: rotate(180deg); }
+        #sidebar.collapsed .profile-text { display: none; }
+        #sidebar.collapsed .profile-box { padding-left: 1rem; padding-right: 1rem; align-items: center; text-align: center; }
+        #sidebar.collapsed .logout-btn { justify-content: center; padding-left: 0; padding-right: 0; }
     </style>
 </head>
 <body class="bg-[#0a0a0c] text-gray-200 font-sans h-screen overflow-hidden">
@@ -64,62 +74,67 @@
     </div>
 
     <!-- SIDEBAR -->
-    <aside class="w-72 bg-[#101114] border-r border-[#1e2025] flex flex-col justify-between hidden md:flex shrink-0">
+    <aside id="sidebar" class="w-72 bg-[#101114] border-r border-[#1e2025] flex flex-col justify-between hidden md:flex shrink-0 transition-all duration-300 relative">
         <div class="p-6">
             <!-- Brand -->
-            <div class="flex items-center gap-3 mb-8">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-pink-500 flex items-center justify-center shadow-lg shadow-blue-500/20">
-                    <i class="fa-solid fa-wand-magic-sparkles text-white text-lg"></i>
+            <div class="flex items-center justify-between mb-8">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-pink-500 flex items-center justify-center shadow-lg shadow-blue-500/20 shrink-0">
+                        <i class="fa-solid fa-wand-magic-sparkles text-white text-lg"></i>
+                    </div>
+                    <div class="sidebar-text">
+                        <h1 class="text-xl font-black bg-gradient-to-r from-blue-400 via-indigo-200 to-pink-400 bg-clip-text text-transparent">VidCrack AI</h1>
+                        <p class="text-[10px] text-gray-500 tracking-wider font-semibold uppercase">All-in-One Master Suite</p>
+                    </div>
                 </div>
-                <div>
-                    <h1 class="text-xl font-black bg-gradient-to-r from-blue-400 via-indigo-200 to-pink-400 bg-clip-text text-transparent">VidCrack AI</h1>
-                    <p class="text-[10px] text-gray-500 tracking-wider font-semibold uppercase">All-in-One Master Suite</p>
-                </div>
+                <button onclick="toggleSidebar()" class="text-gray-500 hover:text-white transition-colors p-1" title="사이드바 접기/열기">
+                    <i id="sidebarToggleIcon" class="fa-solid fa-chevron-left text-sm"></i>
+                </button>
             </div>
 
             <!-- Navigation Links -->
             <nav class="space-y-1.5 font-medium text-sm text-gray-400">
                 <button onclick="switchTab('tab-factory')" id="nav-factory" class="tab-btn active w-full flex items-center gap-3 px-4 py-3 rounded-xl border border-transparent hover:text-white transition text-left">
-                    <i class="fa-solid fa-bolt text-blue-400 w-5"></i>
-                    <span>숏폼 원스톱 공장</span>
+                    <i class="fa-solid fa-bolt text-blue-400 w-5 text-center shrink-0"></i>
+                    <span class="sidebar-text">숏폼 원스톱 공장</span>
                 </button>
                 <button onclick="switchTab('tab-hooks')" id="nav-hooks" class="tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl border border-transparent hover:text-white transition text-left">
-                    <i class="fa-solid fa-bullhorn text-pink-400 w-5"></i>
-                    <span>후킹 100선 & 변수 치환기</span>
+                    <i class="fa-solid fa-bullhorn text-pink-400 w-5 text-center shrink-0"></i>
+                    <span class="sidebar-text">후킹 100선 & 변수 치환기</span>
                 </button>
                 <button onclick="switchTab('tab-prompts')" id="nav-prompts" class="tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl border border-transparent hover:text-white transition text-left">
-                    <i class="fa-solid fa-palette text-purple-400 w-5"></i>
-                    <span>미드저니 20종 & 빌더</span>
+                    <i class="fa-solid fa-palette text-purple-400 w-5 text-center shrink-0"></i>
+                    <span class="sidebar-text">미드저니 20종 & 빌더</span>
                 </button>
                 <button onclick="switchTab('tab-monetize')" id="nav-monetize" class="tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl border border-transparent hover:text-white transition text-left">
-                    <i class="fa-solid fa-coins text-amber-400 w-5"></i>
-                    <span>수익화 3대 루트 & 계산기</span>
+                    <i class="fa-solid fa-coins text-amber-400 w-5 text-center shrink-0"></i>
+                    <span class="sidebar-text">수익화 3대 루트 & 계산기</span>
                 </button>
                 <button onclick="switchTab('tab-checks')" id="nav-checks" class="tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl border border-transparent hover:text-white transition text-left">
-                    <i class="fa-solid fa-clipboard-check text-emerald-400 w-5"></i>
-                    <span>사전 점검 체크리스트</span>
+                    <i class="fa-solid fa-clipboard-check text-emerald-400 w-5 text-center shrink-0"></i>
+                    <span class="sidebar-text">사전 점검 체크리스트</span>
                 </button>
                 <button onclick="switchTab('tab-queue')" id="nav-queue" class="tab-btn w-full flex items-center justify-between px-4 py-3 rounded-xl border border-transparent hover:text-white transition text-left">
                     <div class="flex items-center gap-3">
-                        <i class="fa-solid fa-box-archive text-indigo-400 w-5"></i>
-                        <span>제작 보관함</span>
+                        <i class="fa-solid fa-box-archive text-indigo-400 w-5 text-center shrink-0"></i>
+                        <span class="sidebar-text">제작 보관함</span>
                     </div>
-                    <span id="queueBadge" class="bg-blue-500/20 text-blue-400 text-xs px-2 py-0.5 rounded-full font-bold">0</span>
+                    <span id="queueBadge" class="bg-blue-500/20 text-blue-400 text-xs px-2 py-0.5 rounded-full font-bold sidebar-text">0</span>
                 </button>
             </nav>
         </div>
 
         <!-- User / Device Profile Box -->
-        <div class="p-5 border-t border-[#1e2025] bg-[#0c0d0f]">
-            <div class="flex items-center justify-between mb-3">
+        <div class="p-5 border-t border-[#1e2025] bg-[#0c0d0f] profile-box">
+            <div class="flex items-center justify-between mb-3 profile-text">
                 <div class="flex items-center gap-2">
                     <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
                     <span class="text-xs text-gray-300 font-semibold truncate max-w-[130px]"><span id=\"deviceNameLabel\">인증된 디바이스</span></span>
                 </div>
                 <span class="text-[11px] bg-[#1a1b1e] text-blue-400 border border-[#2a2b2e] px-2 py-0.5 rounded font-mono"><span id=\"deviceCountLabel\">1</span>/9 활성</span>
             </div>
-            <button onclick="logout()" class="w-full bg-[#1a1b1e] hover:bg-red-500/10 hover:border-red-500/40 border border-[#26282d] text-gray-400 hover:text-red-400 text-xs py-2 rounded-lg transition flex items-center justify-center gap-2">
-                <i class="fa-solid fa-arrow-right-from-bracket"></i> 연결 해제 (로그아웃)
+            <button onclick="logout()" class="w-full bg-[#1a1b1e] hover:bg-red-500/10 hover:border-red-500/40 border border-[#26282d] text-gray-400 hover:text-red-400 text-xs py-2.5 rounded-lg transition flex items-center justify-center gap-2 logout-btn">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> <span class="sidebar-text">연결 해제 (로그아웃)</span>
             </button>
         </div>
     </aside>
@@ -1748,6 +1763,11 @@
 
         function closeModal() {
             document.getElementById('detailModal').classList.add('hidden');
+        }
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('collapsed');
         }
 
         window.addEventListener('DOMContentLoaded', checkAuth);
