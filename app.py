@@ -380,28 +380,245 @@ def generate_veo_video(prompt_text, api_key=None):
     else:
         raise ValueError("Veo 모델에서 비디오 파일을 생성받지 못했습니다.")
 
+def get_audio_duration(path):
+    import subprocess
+    cmd = ["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "default=noprint_wrappers=1:nokey=1", path]
+    output = subprocess.check_output(cmd).decode('utf-8').strip()
+    return float(output)
+
+def get_font(size, bold=False):
+    from PIL import ImageFont
+    paths = []
+    if bold:
+        paths = ["C:/Windows/Fonts/malgunbd.ttf", "C:/Windows/Fonts/malgun.ttf", "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"]
+    else:
+        paths = ["C:/Windows/Fonts/malgun.ttf", "C:/Windows/Fonts/malgunbd.ttf", "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"]
+    
+    for path in paths:
+        if os.path.exists(path):
+            try:
+                return ImageFont.truetype(path, size)
+            except Exception:
+                pass
+    try:
+        return ImageFont.load_default(size=size)
+    except Exception:
+        return ImageFont.load_default()
+
+def draw_frame(width, height, elapsed, total_duration, section_type, section_text, product_name, category_name):
+    from PIL import Image, ImageDraw
+    
+    img = Image.new('RGB', (width, height), color='#0a0a0c')
+    draw = ImageDraw.Draw(img)
+    
+    # Render gradient background
+    for y in range(height):
+        r = int(16 + (26 - 16) * (y / height))
+        g = int(17 + (11 - 17) * (y / height))
+        b = int(20 + (24 - 20) * (y / height))
+        draw.line([(0, y), (width, y)], fill=(r, g, b))
+        
+    # Draw top neon card decoration
+    font_title = get_font(55, bold=True)
+    font_sub = get_font(38, bold=False)
+    font_main = get_font(52, bold=True)
+    font_badge = get_font(30, bold=True)
+    
+    # Draw Badge
+    badge_text = f" {category_name} "
+    badge_w = draw.textlength(badge_text, font=font_badge)
+    badge_h = 45
+    draw.rounded_rectangle([60, 80, 60 + badge_w + 20, 80 + badge_h + 10], radius=10, fill='#ec4899')
+    draw.text((70, 85), badge_text, font=font_badge, fill='#ffffff')
+    
+    # Draw Brand Title
+    draw.text((60 + badge_w + 40, 85), product_name[:18], font=font_sub, fill='#9ca3af')
+    
+    # Draw Main card container
+    draw.rounded_rectangle([80, 360, width-80, height-300], radius=30, fill='#141518', outline='#26282d', width=2)
+    
+    # Draw section title
+    section_labels = {
+        'hook': '🔥 3초 HOOK 이탈 방지',
+        'problem': '👀 공감 & 문제제기',
+        'solution': '💡 가치 & 솔루션',
+        'cta': '📌 행동 촉구 (CTA)'
+    }
+    sec_label = section_labels.get(section_type, '숏폼 비디오')
+    draw.text((120, 420), sec_label, font=font_title, fill='#3b82f6')
+    
+    # Word wrap main script text
+    max_chars = 16
+    lines = []
+    current_line = ""
+    for char in section_text:
+        current_line += char
+        if len(current_line) >= max_chars or char == '\n':
+            lines.append(current_line.strip())
+            current_line = ""
+    if current_line:
+        lines.append(current_line.strip())
+        
+    y_text = 560
+    for line in lines[:10]: # Limit to avoid container overflow
+        draw.text((120, y_text), line, font=font_main, fill='#ffffff')
+        y_text += 80
+        
+    # Draw Progress Bar at the bottom
+    bar_width = width - 240
+    bar_height = 16
+    bar_x = 120
+    bar_y = height - 180
+    
+    draw.rounded_rectangle([bar_x, bar_y, bar_x + bar_width, bar_y + bar_height], radius=8, fill='#1e2025')
+    fill_width = int(bar_width * (elapsed / total_duration))
+    if fill_width > 0:
+        draw.rounded_rectangle([bar_x, bar_y, bar_x + fill_width, bar_y + bar_height], radius=8, fill='#ec4899')
+        
+    time_str = f"{int(elapsed)}s / {int(total_duration)}s"
+    draw.text((width - 260, height - 145), time_str, font=font_badge, fill='#9ca3af')
+    
+    # Draw watermark watermark
+    draw.text((120, height - 145), "VidCrack AI Studio - 로컬 무료 렌더링", font=font_badge, fill='#4b5563')
+    
+    return img
+
+def make_local_shorts_video(pkg):
+    from gtts import gTTS
+    import subprocess
+    
+    hook_text = pkg.get('hook_text', '')
+    problem_text = pkg.get('problem_text', '')
+    solution_text = pkg.get('solution_text', '')
+    cta_text = pkg.get('cta_text', '')
+    
+    product_name = pkg.get('product_name', 'VidCrack AI')
+    category_name = pkg.get('industry_name', '광고')
+    
+    temp_dir = os.path.join(BASE_DIR, f'temp_render_{uuid.uuid4().hex[:6]}')
+    os.makedirs(temp_dir, exist_ok=True)
+    
+    parts = [
+        ('hook', hook_text),
+        ('problem', problem_text),
+        ('solution', solution_text),
+        ('cta', cta_text)
+    ]
+    
+    durations = {}
+    audio_paths = []
+    
+    for name, text in parts:
+        clean_text = text.replace('[0~3초 후킹]', '').replace('[3~8초 공감/문제]', '').replace('[8~25초 솔루션/가치]', '').replace('[마지막 3초 CTA]', '').strip()
+        tts = gTTS(text=clean_text, lang='ko')
+        audio_path = os.path.join(temp_dir, f"{name}.mp3")
+        tts.save(audio_path)
+        
+        dur = get_audio_duration(audio_path)
+        durations[name] = dur
+        audio_paths.append(audio_path)
+        
+    total_duration = sum(durations.values())
+    
+    fps = 5
+    frame_idx = 0
+    frames_dir = os.path.join(temp_dir, 'frames')
+    os.makedirs(frames_dir, exist_ok=True)
+    
+    current_time = 0.0
+    for name, text in parts:
+        duration = durations[name]
+        steps = int(duration * fps)
+        for i in range(steps):
+            elapsed = current_time + (i / fps)
+            img = draw_frame(
+                width=1080,
+                height=1920,
+                elapsed=elapsed,
+                total_duration=total_duration,
+                section_type=name,
+                section_text=text,
+                product_name=product_name,
+                category_name=category_name
+            )
+            img.save(os.path.join(frames_dir, f"frame_{frame_idx:05d}.png"))
+            frame_idx += 1
+        current_time += duration
+        
+    # Concatenate audios
+    concat_list_path = os.path.join(temp_dir, 'concat_list.txt')
+    with open(concat_list_path, 'w', encoding='utf-8') as f:
+        for ap in audio_paths:
+            escaped_path = ap.replace('\\', '/')
+            f.write(f"file '{escaped_path}'\n")
+            
+    combined_audio_path = os.path.join(temp_dir, 'combined.mp3')
+    subprocess.run([
+        'ffmpeg', '-y', '-f', 'concat', '-safe', '0',
+        '-i', concat_list_path, '-c', 'copy', combined_audio_path
+    ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    
+    # Render frames to raw video
+    raw_video_path = os.path.join(temp_dir, 'raw_video.mp4')
+    subprocess.run([
+        'ffmpeg', '-y', '-framerate', str(fps),
+        '-i', os.path.join(frames_dir, 'frame_%05d.png'),
+        '-c:v', 'libx264', '-pix_fmt', 'yuv420p', raw_video_path
+    ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    
+    # Merge video and audio
+    static_video_dir = os.path.join(BASE_DIR, 'static', 'videos')
+    os.makedirs(static_video_dir, exist_ok=True)
+    output_filename = f"local_render_{uuid.uuid4().hex[:8]}.mp4"
+    final_output_path = os.path.join(static_video_dir, output_filename)
+    
+    subprocess.run([
+        'ffmpeg', '-y', '-i', raw_video_path, '-i', combined_audio_path,
+        '-c:v', 'copy', '-c:a', 'aac', '-shortest', final_output_path
+    ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    
+    # Cleanup files
+    try:
+        for f in os.listdir(frames_dir):
+            os.remove(os.path.join(frames_dir, f))
+        os.rmdir(frames_dir)
+        for ap in audio_paths:
+            os.remove(ap)
+        os.remove(concat_list_path)
+        os.remove(combined_audio_path)
+        os.remove(raw_video_path)
+        os.rmdir(temp_dir)
+    except Exception as e:
+        print(f"Cleanup error: {e}")
+        
+    return f"/static/videos/{output_filename}"
+
 @app.route('/api/render', methods=['POST'])
 def api_render():
     data = request.json or {}
     pkg_id = data.get('id')
+    mode = data.get('mode', 'veo') # 'veo' or 'local'
     api_key = data.get('api_key') or os.environ.get('GEMINI_API_KEY')
-
-    if not api_key:
-        return jsonify({'success': False, 'msg': 'API Key가 없습니다. 설정해주세요.'}), 400
 
     queue = load_json(QUEUE_FILE, [])
     pkg = next((q for q in queue if q.get('id') == pkg_id), None)
     if not pkg:
         return jsonify({'success': False, 'msg': '패키지를 찾을 수 없습니다.'}), 404
 
-    mj_prompt = pkg.get('midjourney_prompt', '')
-    product_name = pkg.get('product_name', '')
-    
-    clean_prompt = mj_prompt.replace('--ar 9:16', '').replace('--style raw', '').replace('--v 7', '').strip()
-    video_prompt = f"Vertical video, {clean_prompt}. A cinematic promotional short form video advertising {product_name}."
-    
     try:
-        video_url = generate_veo_video(video_prompt, api_key)
+        if mode == 'local':
+            print("Starting local free rendering with gTTS and FFmpeg...")
+            video_url = make_local_shorts_video(pkg)
+        else:
+            if not api_key:
+                return jsonify({'success': False, 'msg': 'API Key가 없습니다. 설정해주세요.'}), 400
+            mj_prompt = pkg.get('midjourney_prompt', '')
+            product_name = pkg.get('product_name', '')
+            clean_prompt = mj_prompt.replace('--ar 9:16', '').replace('--style raw', '').replace('--v 7', '').strip()
+            video_prompt = f"Vertical video, {clean_prompt}. A cinematic promotional short form video advertising {product_name}."
+            print("Starting Veo 3.0 rendering...")
+            video_url = generate_veo_video(video_prompt, api_key)
+            
         pkg['video_url'] = video_url
         save_json(QUEUE_FILE, queue)
         return jsonify({'success': True, 'video_url': video_url})
