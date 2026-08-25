@@ -1695,6 +1695,18 @@
             showToast("JSON 파일이 다운로드되었습니다.");
         }
 
+        function generateVideoFromQueue(pkg) {
+            currentPackage = pkg;
+            displayPackage(pkg);
+            switchTab('tab-viral');
+            const confirmLocal = confirm("선택하신 대본으로 영상을 즉시 제작합니다.\n\n[확인] -> 무제한 무료 로컬 제작 (자동 TTS + 3층 자막)\n[취소] -> Veo 3.0 고화질 AI 제작 (API Key 필요)");
+            if (confirmLocal) {
+                generateShortsVideo('local');
+            } else {
+                generateShortsVideo('veo');
+            }
+        }
+
         // QUEUE MANAGER (Local Storage version)
         function loadQueue() {
             try {
@@ -1730,9 +1742,14 @@
                                 <p class="text-xs text-gray-400 line-clamp-3 leading-relaxed">${q.problem_text} ${q.solution_text}</p>
                             </div>
                             <div class="pt-3 border-t border-[#1e2025] flex items-center justify-between">
-                                <button onclick='openDetailModalStatic(${safeQ})' class="text-xs text-blue-400 hover:text-blue-300 font-semibold flex items-center gap-1">
-                                    <i class="fa-solid fa-eye"></i> 전체 보기
-                                </button>
+                                <div class="flex items-center gap-3">
+                                    <button onclick='openDetailModalStatic(${safeQ})' class="text-xs text-blue-400 hover:text-blue-300 font-semibold flex items-center gap-1">
+                                        <i class="fa-solid fa-eye"></i> 전체 보기
+                                    </button>
+                                    <button onclick='generateVideoFromQueue(${safeQ})' class="text-xs text-emerald-400 hover:text-emerald-300 font-semibold flex items-center gap-1">
+                                        <i class="fa-solid fa-circle-play"></i> 영상 제작
+                                    </button>
+                                </div>
                                 <button onclick="deleteQueueItem('${q.id}')" class="text-xs text-gray-500 hover:text-red-400 transition p-1" title="삭제">
                                     <i class="fa-solid fa-trash-can"></i>
                                 </button>
