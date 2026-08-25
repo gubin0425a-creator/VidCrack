@@ -59,23 +59,23 @@ def compile_static():
     # Wrap main content in a container
     html = html.replace(
         '<!-- Toast Notification -->',
-        login_html + '\\n    <!-- Toast Notification -->\\n    <div id="mainView" class="hidden flex h-screen w-full overflow-hidden">'
+        login_html + '\n    <!-- Toast Notification -->\n    <div id="mainView" class="hidden flex h-screen w-full overflow-hidden">'
     )
 
     # Add closing div for mainView right before main javascript tag
     html = html.replace(
         '<!-- MAIN APP JAVASCRIPT -->',
-        '</div>\\n    <!-- MAIN APP JAVASCRIPT -->'
+        '</div>\n    <!-- MAIN APP JAVASCRIPT -->'
     )
 
     # Replace jinja template tags with HTML spans
     html = html.replace(
         "{{ device.device_name if device else '인증된 디바이스' }}",
-        "<span id=\\\"deviceNameLabel\\\">인증된 디바이스</span>"
+        '<span id="deviceNameLabel">인증된 디바이스</span>'
     )
     html = html.replace(
         "{{ device_count }}",
-        "<span id=\\\"deviceCountLabel\\\">1</span>"
+        '<span id="deviceCountLabel">1</span>'
     )
 
     # Remove flex layout from body tag to allow login screen vs mainView splitting
