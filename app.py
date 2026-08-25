@@ -5,6 +5,8 @@ import json
 import time
 from datetime import datetime
 from flask import Flask, request, jsonify, render_template, make_response, redirect
+from google import genai
+from google.genai import types
 
 app = Flask(__name__)
 
@@ -324,6 +326,88 @@ def api_simulate():
         'total_monthly': total_monthly,
         'formatted_total': f'{total_monthly:,}원'
     })
+
+def generate_veo_video(prompt_text, api_key=None):
+    if not api_key:
+        api_key = os.environ.get('GEMINI_API_KEY')
+    if not api_key:
+        raise ValueError("API Key가 없습니다. 좌측 하단에 입력해주세요.")
+
+    client = genai.Client(api_key=api_key)
+    
+    # Try different Veo models in order of availability
+    operation = None
+    errors = []
+    
+    for model_name in ["veo-3.0-generate-preview", "veo-2.0-generate-preview", "veo-3.1-generate-preview"]:
+        try:
+            print(f"Attempting to generate video using model: {model_name}")
+            operation = client.models.generate_videos(
+                model=model_name,
+                prompt=prompt_text,
+                config=types.GenerateVideosConfig(
+                    aspect_ratio="9:16",
+                    resolution="720p",
+                    duration_seconds=5
+                )
+            )
+            break # Success, break out of loop
+        except Exception as e:
+            errors.append(f"{model_name}: {str(e)}")
+            print(f"Failed to use model {model_name}: {e}")
+            
+    if not operation:
+        raise ValueError(f"모든 Veo 모델 생성에 실패했습니다. 에러: {'; '.join(errors)}")
+
+    print("Veo generation request sent. Polling operation...")
+    while not operation.done:
+        time.sleep(5)
+        operation = client.operations.get(operation)
+
+    if operation.response and operation.response.generated_videos:
+        generated_video = operation.response.generated_videos[0]
+        
+        static_video_dir = os.path.join(BASE_DIR, 'static', 'videos')
+        os.makedirs(static_video_dir, exist_ok=True)
+        filename = f"veo_{uuid.uuid4().hex[:8]}.mp4"
+        file_path = os.path.join(static_video_dir, filename)
+
+        # Download the generated video
+        client.files.download(file=generated_video.video)
+        generated_video.video.save(file_path)
+
+        return f"/static/videos/{filename}"
+    else:
+        raise ValueError("Veo 모델에서 비디오 파일을 생성받지 못했습니다.")
+
+@app.route('/api/render', methods=['POST'])
+def api_render():
+    data = request.json or {}
+    pkg_id = data.get('id')
+    api_key = data.get('api_key') or os.environ.get('GEMINI_API_KEY')
+
+    if not api_key:
+        return jsonify({'success': False, 'msg': 'API Key가 없습니다. 설정해주세요.'}), 400
+
+    queue = load_json(QUEUE_FILE, [])
+    pkg = next((q for q in queue if q.get('id') == pkg_id), None)
+    if not pkg:
+        return jsonify({'success': False, 'msg': '패키지를 찾을 수 없습니다.'}), 404
+
+    mj_prompt = pkg.get('midjourney_prompt', '')
+    product_name = pkg.get('product_name', '')
+    
+    clean_prompt = mj_prompt.replace('--ar 9:16', '').replace('--style raw', '').replace('--v 7', '').strip()
+    video_prompt = f"Vertical video, {clean_prompt}. A cinematic promotional short form video advertising {product_name}."
+    
+    try:
+        video_url = generate_veo_video(video_prompt, api_key)
+        pkg['video_url'] = video_url
+        save_json(QUEUE_FILE, queue)
+        return jsonify({'success': True, 'video_url': video_url})
+    except Exception as e:
+        print(f"Error rendering: {e}")
+        return jsonify({'success': False, 'msg': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)), debug=False)

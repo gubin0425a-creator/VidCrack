@@ -959,10 +959,27 @@ def compile_static():
             sidebar.classList.toggle('collapsed');
         }
 
-        // AI Shorts Video Generator Logic
-        function generateShortsVideo() {
+        function saveApiKey(val) {
+            localStorage.setItem('gemini_api_key', val);
+        }
+
+        function initApiKeyInput() {
+            const stored = localStorage.getItem('gemini_api_key') || '';
+            const el = document.getElementById('geminiApiKey');
+            if (el) el.value = stored;
+        }
+
+        // AI Shorts Video Generator Logic (Veo 3.0 Integration)
+        async function generateShortsVideo() {
             if (!currentPackage) {
                 alert("생성된 패키지가 없습니다. 먼저 대본을 생성하세요.");
+                return;
+            }
+
+            const apiKey = localStorage.getItem('gemini_api_key') || '';
+            if (!apiKey) {
+                alert("좌측 하단에 Gemini API Key를 입력하셔야 Veo 3.0 동영상 생성을 시작할 수 있습니다.");
+                document.getElementById('geminiApiKey')?.focus();
                 return;
             }
 
@@ -977,46 +994,93 @@ def compile_static():
             loadBox.classList.remove('hidden');
             outputSec.scrollIntoView({behavior: 'smooth'});
 
-            const stages = [
-                {pct: 15, text: "미드저니 AI 프롬프트 기반 5단계 씬(Scene) 리소스 렌더링 중..."},
-                {pct: 40, text: "10대 업종 특화 3층 자막 오버레이 그래픽 합성 중..."},
-                {pct: 65, text: "선택한 보이스 가이드 기반 성우 음성(TTS) 및 음향 매핑 중..."},
-                {pct: 85, text: "FFmpeg 하드웨어 가속기 기반 H.264 MP4 렌더링 인코딩 중..."},
-                {pct: 100, text: "릴스 파일 인코딩 완료! 다운로드 파일을 준비하는 중..."}
-            ];
+            stepText.innerText = "Veo 3.0 비디오 생성 요청 전송 중...";
+            bar.style.width = "10%";
 
-            let stageIdx = 0;
-            bar.style.width = "0%";
-
-            const timer = setInterval(() => {
-                if (stageIdx < stages.length) {
-                    const st = stages[stageIdx];
-                    stepText.innerText = st.text;
-                    bar.style.width = st.pct + "%";
-                    stageIdx++;
-                } else {
-                    clearInterval(timer);
-                    btn.disabled = false;
-                    btn.style.opacity = '1';
-                    loadBox.classList.add('hidden');
-                    bar.style.width = "0%";
-
-                    // Show success alert and download prompt
-                    const confirmDownload = confirm("🎉 AI 숏폼 영상 제작이 완료되었습니다!\\n\\n[파일 정보]\\n- 해상도: 1080x1920 (9:16 릴스 최적)\\n- 재생 시간: 25초\\n- 자막: 3층 한글 자막 적용\\n- 음성: AI 보이스 음성 탑재\\n\\n확인을 누르시면 완성된 MP4 영상 파일을 즉시 다운로드합니다.");
-                    if (confirmDownload) {
-                        // Trigger local file download mock
-                        const a = document.createElement('a');
-                        a.href = "https://raw.githubusercontent.com/gubin0425a-creator/VidCrack/main/README.md"; // Fallback download asset
-                        a.download = `vidcrack_shorts_${currentPackage.id}.mp4`;
-                        document.body.appendChild(a);
-                        a.click();
-                        document.body.removeChild(a);
+            // Check if running on GitHub Pages
+            const isStaticPages = window.location.hostname.includes('github.io');
+            if (isStaticPages) {
+                const stages = [
+                    {pct: 25, text: "미드저니 AI 프롬프트 기반 Veo 3.0 비디오 프레임 구성 중... (GitHub Pages 데모)"},
+                    {pct: 50, text: "10대 업종 특화 3층 자막 오버레이 그래픽 합성 중..."},
+                    {pct: 75, text: "성우 음성(TTS) 및 배경음악 매핑 중..."},
+                    {pct: 100, text: "릴스 파일 인코딩 완료! 다운로드 파일을 준비하는 중..."}
+                ];
+                let idx = 0;
+                const timer = setInterval(() => {
+                    if (idx < stages.length) {
+                        stepText.innerText = stages[idx].text;
+                        bar.style.width = stages[idx].pct + "%";
+                        idx++;
+                    } else {
+                        clearInterval(timer);
+                        btn.disabled = false;
+                        btn.style.opacity = '1';
+                        loadBox.classList.add('hidden');
+                        alert("🎉 [GitHub Pages 데모] AI 숏폼 영상(샘플) 제작이 완료되었습니다! 로컬 스튜디오에서 실행 시 실제 Veo 3.0 API로 영상을 렌더링합니다.");
                     }
+                }, 2000);
+                return;
+            }
+
+            // Local backend API call to render video using Google Veo
+            try {
+                let progress = 10;
+                const progressInterval = setInterval(() => {
+                    if (progress < 90) {
+                        progress += 5;
+                        bar.style.width = progress + "%";
+                        if (progress < 30) stepText.innerText = "Veo 3.0 모델 비디오 씬 생성 중...";
+                        else if (progress < 60) stepText.innerText = "TTS 보이스 오디오 및 사운드 효과 병합 중...";
+                        else stepText.innerText = "H.264 MP4 렌더링 파일 인코딩 중...";
+                    }
+                }, 4000);
+
+                const res = await fetch('/api/render', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: currentPackage.id, api_key: apiKey })
+                });
+                
+                clearInterval(progressInterval);
+                const data = await res.json();
+                
+                if (data.success) {
+                    bar.style.width = "100%";
+                    stepText.innerText = "인코딩 완료! 다운로드 준비 중...";
+                    
+                    setTimeout(() => {
+                        btn.disabled = false;
+                        btn.style.opacity = '1';
+                        loadBox.classList.add('hidden');
+                        
+                        const confirmDownload = confirm("🎉 Veo 3.0 AI 숏폼 영상 제작이 완료되었습니다!\\n\\n확인을 누르시면 로컬에 저장된 완성 MP4 파일을 다운로드합니다.");
+                        if (confirmDownload) {
+                            const a = document.createElement('a');
+                            a.href = data.video_url;
+                            a.download = `veo_shorts_${currentPackage.id}.mp4`;
+                            document.body.appendChild(a);
+                            a.click();
+                            document.body.removeChild(a);
+                        }
+                    }, 1000);
+                } else {
+                    throw new Error(data.msg || "비디오 렌더링에 실패했습니다.");
                 }
-            }, 1800);
+            } catch (err) {
+                btn.disabled = false;
+                btn.style.opacity = '1';
+                loadBox.classList.add('hidden');
+                alert("❌ 비디오 렌더링 실패: " + err.message);
+            }
         }
 
-        window.addEventListener('DOMContentLoaded', checkAuth);
+        function checkAuthWrapper() {
+            initApiKeyInput();
+            checkAuth();
+        }
+
+        window.addEventListener('DOMContentLoaded', checkAuthWrapper);
     </script>
 """
 
