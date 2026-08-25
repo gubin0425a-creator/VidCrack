@@ -1,0 +1,90 @@
+[
+  {
+    "id": "b3571393",
+    "created_at": "2026-08-25 21:27:02",
+    "product_name": "라운드랩 자작나무 수분크림",
+    "industry_key": "beauty_fashion",
+    "industry_name": "뷰티·패션",
+    "mechanism_name": "loss_aversion",
+    "hook_text": "🔥 품절 임박! 라운드랩 자작나무 수분크림 지금 안 사면 무조건 손해봅니다",
+    "problem_text": "피부과에 100만 원 쏟아붓기 전에 잠깐만요. 매일 바르는 화장품 순서와 성분만 바꿔도 피부가 확 달라집니다.",
+    "solution_text": "이 라운드랩 자작나무 수분크림은 흡수율을 극대화한 독자 배합으로 바르자마자 맑고 투명한 글래스 스킨을 만들어줍니다. 번들거림 없이 촉촉함만 남아요.",
+    "cta_text": "📌 나중에 꼭 써먹을 꿀팁이니 지금 [저장]해두고 하나씩 따라해보세요! 친구에게 공유하면 더 좋습니다.",
+    "full_script": "[0~3초 후킹]\n🔥 품절 임박! 라운드랩 자작나무 수분크림 지금 안 사면 무조건 손해봅니다\n\n[3~8초 공감/문제]\n피부과에 100만 원 쏟아붓기 전에 잠깐만요. 매일 바르는 화장품 순서와 성분만 바꿔도 피부가 확 달라집니다.\n\n[8~25초 솔루션/가치]\n이 라운드랩 자작나무 수분크림은 흡수율을 극대화한 독자 배합으로 바르자마자 맑고 투명한 글래스 스킨을 만들어줍니다. 번들거림 없이 촉촉함만 남아요.\n\n[마지막 3초 CTA]\n📌 나중에 꼭 써먹을 꿀팁이니 지금 [저장]해두고 하나씩 따라해보세요! 친구에게 공유하면 더 좋습니다.",
+    "captions": {
+      "layer1_header": "🔥 품절 임박! 라운드랩 자작나무 수분크림 지금 안...",
+      "layer2_sub": "뷰티·패션 실전 압축 꿀팁 대방출",
+      "layer3_cta": "👉 저장해두고 매일 꺼내보세요!"
+    },
+    "visual_notes": {
+      "visual_hook": "Before/After 스플릿 스크린 / 제품 스와치 클로즈업 / 거울 셀피 트랜지션",
+      "first_frame": "1.5초 내 시각적 자극: 고대비 텍스트 팝업 + 역동적 줌인",
+      "shot_breakdown": [
+        "0~3s: 극적인 제품/결과물 초근접 클로즈업 (텍스트 팝업)",
+        "3~8s: 일상 속 문제 상황 캔디드 샷 (POV 또는 분할 화면)",
+        "8~20s: 제품 언박싱 & 실제 사용 모습 (슬로모션 + 텍스처 강조)",
+        "20~25s: 비포/애프터 비교 및 만족스러운 최종 결과",
+        "25~30s: 프로필 유도 커버 & 저장 CTA 모션 그래픽"
+      ]
+    },
+    "audio_notes": {
+      "voice_tone": "또렷하고 빠른 톤 (+20% 에너지)",
+      "bgm_mood": "뷰티·패션 맞춤 릴스 트렌딩 오디오 (상승 화살표 BGM 적용)",
+      "sfx": "0초 화면전환 팝 사운드 → 8초 솔루션 전환 챠임벨 → 마지막 CTA 클릭음"
+    },
+    "midjourney_prompt": "ultra realistic beauty skincare macro shot, 라운드랩 자작나무 수분크림 bottle with glass dropper, glowing hydrated porcelain skin texture with visible pores, soft clinical studio lighting, neutral minimal background, high-end cosmetic campaign photography --ar 9:16 --style raw --v 7",
+    "hashtags": [
+      "#뷰티",
+      "#라운드랩추천",
+      "#릴스꿀팁",
+      "#인스타트렌드",
+      "#꿀템추천"
+    ],
+    "upload_time": "오후 19:00 ~ 21:00 (퇴근 후 최고 참여율 골든타임)",
+    "link": "https://link.coupang.com/a/kbeauty_serum_01"
+  },
+  {
+    "id": "4054804f",
+    "created_at": "2026-08-25 21:26:50",
+    "product_name": "라운드랩 자작나무 수분크림",
+    "industry_key": "beauty_fashion",
+    "industry_name": "뷰티·패션",
+    "mechanism_name": "loss_aversion",
+    "hook_text": "🔥 품절 임박! 라운드랩 자작나무 수분크림 지금 안 사면 무조건 손해봅니다",
+    "problem_text": "피부과에 100만 원 쏟아붓기 전에 잠깐만요. 매일 바르는 화장품 순서와 성분만 바꿔도 피부가 확 달라집니다.",
+    "solution_text": "이 라운드랩 자작나무 수분크림은 흡수율을 극대화한 독자 배합으로 바르자마자 맑고 투명한 글래스 스킨을 만들어줍니다. 번들거림 없이 촉촉함만 남아요.",
+    "cta_text": "📌 나중에 꼭 써먹을 꿀팁이니 지금 [저장]해두고 하나씩 따라해보세요! 친구에게 공유하면 더 좋습니다.",
+    "full_script": "[0~3초 후킹]\n🔥 품절 임박! 라운드랩 자작나무 수분크림 지금 안 사면 무조건 손해봅니다\n\n[3~8초 공감/문제]\n피부과에 100만 원 쏟아붓기 전에 잠깐만요. 매일 바르는 화장품 순서와 성분만 바꿔도 피부가 확 달라집니다.\n\n[8~25초 솔루션/가치]\n이 라운드랩 자작나무 수분크림은 흡수율을 극대화한 독자 배합으로 바르자마자 맑고 투명한 글래스 스킨을 만들어줍니다. 번들거림 없이 촉촉함만 남아요.\n\n[마지막 3초 CTA]\n📌 나중에 꼭 써먹을 꿀팁이니 지금 [저장]해두고 하나씩 따라해보세요! 친구에게 공유하면 더 좋습니다.",
+    "captions": {
+      "layer1_header": "🔥 품절 임박! 라운드랩 자작나무 수분크림 지금 안...",
+      "layer2_sub": "뷰티·패션 실전 압축 꿀팁 대방출",
+      "layer3_cta": "👉 저장해두고 매일 꺼내보세요!"
+    },
+    "visual_notes": {
+      "visual_hook": "Before/After 스플릿 스크린 / 제품 스와치 클로즈업 / 거울 셀피 트랜지션",
+      "first_frame": "1.5초 내 시각적 자극: 고대비 텍스트 팝업 + 역동적 줌인",
+      "shot_breakdown": [
+        "0~3s: 극적인 제품/결과물 초근접 클로즈업 (텍스트 팝업)",
+        "3~8s: 일상 속 문제 상황 캔디드 샷 (POV 또는 분할 화면)",
+        "8~20s: 제품 언박싱 & 실제 사용 모습 (슬로모션 + 텍스처 강조)",
+        "20~25s: 비포/애프터 비교 및 만족스러운 최종 결과",
+        "25~30s: 프로필 유도 커버 & 저장 CTA 모션 그래픽"
+      ]
+    },
+    "audio_notes": {
+      "voice_tone": "또렷하고 빠른 톤 (+20% 에너지)",
+      "bgm_mood": "뷰티·패션 맞춤 릴스 트렌딩 오디오 (상승 화살표 BGM 적용)",
+      "sfx": "0초 화면전환 팝 사운드 → 8초 솔루션 전환 챠임벨 → 마지막 CTA 클릭음"
+    },
+    "midjourney_prompt": "ultra realistic beauty skincare macro shot, 라운드랩 자작나무 수분크림 bottle with glass dropper, glowing hydrated porcelain skin texture with visible pores, soft clinical studio lighting, neutral minimal background, high-end cosmetic campaign photography --ar 9:16 --style raw --v 7",
+    "hashtags": [
+      "#뷰티",
+      "#라운드랩추천",
+      "#릴스꿀팁",
+      "#인스타트렌드",
+      "#꿀템추천"
+    ],
+    "upload_time": "오후 19:00 ~ 21:00 (퇴근 후 최고 참여율 골든타임)",
+    "link": "https://link.coupang.com/a/kbeauty_serum_01"
+  }
+]

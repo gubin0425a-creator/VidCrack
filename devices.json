@@ -1,0 +1,16 @@
+[
+  {
+    "id": "42f6af42-179f-46d3-b8c8-33e8c2e32955",
+    "device_name": "Test Device",
+    "product_name": "Werkzeug/3.1.8",
+    "registered_at": "2026-08-25 21:26:50",
+    "last_used": "2026-08-25 21:26:50"
+  },
+  {
+    "id": "f8e7c1f2-e146-4c7f-bdf9-8a08693c2742",
+    "device_name": "Test PC",
+    "product_name": "Werkzeug/3.1.8",
+    "registered_at": "2026-08-25 21:27:02",
+    "last_used": "2026-08-25 21:27:02"
+  }
+]

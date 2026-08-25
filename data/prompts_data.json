@@ -1,0 +1,664 @@
+{
+  "master_prompts": [
+    {
+      "id": 1,
+      "title": "K-뷰티 스킨케어 클로즈업",
+      "tags": [
+        "뷰티",
+        "스킨케어",
+        "매크로",
+        "K-뷰티"
+      ],
+      "ar": "9:16",
+      "prompt": "An ultra close-up of a young Korean woman's cheek, eye, and lips, with extremely bright and clear porcelain skin, intensely glossy glass skin texture with high luminosity and clean reflections, no product texture, flawless smooth pores, pure and radiant look, dewy and luminous finish, shot in a clinical white studio lighting, beauty macro photography style, Canon EOS R5 with 100mm macro lens, minimal background, high-end K-beauty skincare aesthetic --ar 9:16 --style raw --v 7",
+      "analysis": {
+        "subject": "한국 여성의 볼/눈/입 클로즈업, 유리같은 피부 표현",
+        "description": "매끈한 도자기 피부, 반사광 강조, 잡티/모공 없음, 촉촉한 광택",
+        "composition": "초근접 촬영(ultra close-up), 얼굴 일부만 화면에, 9:16 세로 비율",
+        "lighting": "밝은 화이트 스튜디오 조명(clinical white studio lighting), 균일한 확산광",
+        "mood": "청결/순수/고급스러움, 임상적이면서 미학적",
+        "camera": "Canon EOS R5, 100mm 매크로 렌즈, 얕은 심도",
+        "style": "K 뷰티 매크로 포토그래피, 미니멀하고 리얼",
+        "parameters": "--ar 9:16 --style raw --v 7"
+      },
+      "tips": [
+        "style raw는 AI의 기본 미화 효과를 제거하여 사실적 피부 질감을 살리는 데 필수",
+        "porcelain skin -> tanned skin, freckled skin 등으로 변경하면 다양한 피부 톤 표현 가능",
+        "화장품 브랜드 SNS, 스킨케어 광고 소재로 즉시 활용 가능"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "럭셔리 향수 제품 촬영",
+      "tags": [
+        "제품촬영",
+        "향수",
+        "럭셔리",
+        "야외"
+      ],
+      "ar": "3:4",
+      "prompt": "Hermes H24 Eau de Toilette bottle, ultra-realistic 8K medium-format product photo, sleek hexagonal-base glass filled with translucent sage-green liquid, standing on a glossy white acrylic plinth floating at the edge of a turquoise pool, outdoors in bright midday sun, hard sunlight from 45 left casting vibrant water caustic ripples across plinth and bottle, thin cool rim light highlighting beveled glass edges and silver cap, soft top fill light to reveal glass details, hyper-detailed reflections and micro water droplets on acrylic, subtle internal liquid glow, chromatic flares on beveled edges, vast rippling azure water background with soft bokeh city lights, high-contrast luxury summer-modern mood, sage-green x cool cyan x clean white palette --ar 3:4 --style raw --v 7",
+      "analysis": {
+        "subject": "에르메스 H24 오드뚜왈렛 향수병",
+        "description": "육각형 베이스 유리, 세이지 그린 액체, 마이크로 물방울, 크로매틱 플레어",
+        "composition": "3:4 세로 비율, 수영장 가장자리 배치, 제품 중심 구도",
+        "lighting": "45도 좌측 강한 햇빛 + 쿨 림 라이트 + 소프트 탑 필 라이트 (3점 조명)",
+        "mood": "럭셔리/여름/모던, 고대비, 청량감",
+        "camera": "미디엄 포맷 (암시), 8K 해상도, 초정밀 디테일",
+        "style": "울트라 리얼리스틱 제품 사진, 하이엔드 광고",
+        "parameters": "--ar 3:4 --style raw --v 7"
+      },
+      "tips": [
+        "3점 조명 구조 (메인 + 림 + 필)를 프롬프트에 명시하면 조명 품질이 대폭 향상",
+        "turquoise pool -> marble surface, dark velvet 등으로 배경 변경 가능",
+        "향수병 브랜드명을 변경하면 다른 제품 촬영에도 응용 가능"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "하이패션 에디토리얼",
+      "tags": [
+        "패션",
+        "에디토리얼",
+        "모션",
+        "시네마틱"
+      ],
+      "ar": "9:16",
+      "prompt": "High-fashion editorial photography of a model in elegant motion, captured mid-step as fabric flows gracefully, cinematic studio lighting, soft shadows, dynamic pose, blurred fabric edges for motion effect, natural expression, ultra realistic, 8k --ar 9:16 --style raw --ow 800 --v 7",
+      "analysis": {
+        "subject": "하이패션 모델, 우아한 모션 중 포착",
+        "description": "직물이 우아하게 흐름, 블러 처리된 패브릭 가장자리, 자연스러운 표정",
+        "composition": "9:16 세로 비율, 전신 또는 상반신, 다이나믹 포즈",
+        "lighting": "시네마틱 스튜디오 조명, 소프트 섀도우",
+        "mood": "우아함, 다이나믹, 고급스러움",
+        "camera": "8K 해상도 (암시적으로 하이엔드 카메라)",
+        "style": "하이패션 에디토리얼 포토그래피, 울트라 리얼리스틱",
+        "parameters": "--ar 9:16 --style raw --ow 800 --v 7"
+      },
+      "tips": [
+        "ow 800은 옴니 참조(-oref)와 함께 사용하여 특정 모델/의상을 유지",
+        "elegant motion -> power stance, sitting gracefully 등으로 포즈 변경 가능",
+        "패션 브랜드 룩북, 인스타그램 콘텐츠 제작에 최적"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "향수 루프 영상용 제품 촬영",
+      "tags": [
+        "제품촬영",
+        "루프",
+        "향수",
+        "미니멀"
+      ],
+      "ar": "2:3",
+      "prompt": "product photography, in the style of the french brand n perks, on top of an orange gradient glass table in front of a white wall, with golden accents and highlights, centered composition, a bottle of perfume stands tall, close-up shot, bright light, delicate details, professional photography, studio lighting, soft shadows, high resolution, high detail, commercial advertising, minimalist style, magazine cover style, ultra-realistic photography, nikon d850 camera --ar 2:3 --bs 1",
+      "analysis": {
+        "subject": "향수병 (프렌치 브랜드 n perks 스타일)",
+        "description": "오렌지 그라데이션 유리 테이블, 골든 악센트, 섬세한 디테일",
+        "composition": "중앙 정렬(centered composition), 클로즈업, 2:3 세로 비율",
+        "lighting": "밝은 조명(bright light), 스튜디오 라이팅, 소프트 섀도우",
+        "mood": "미니멀, 고급스러움, 매거진 커버 느낌",
+        "camera": "Nikon D850",
+        "style": "커머셜 광고, 미니멀리스트, 매거진 커버 스타일, 울트라 리얼리스틱",
+        "parameters": "--ar 2:3 --bs 1"
+      },
+      "tips": [
+        "bs 1은 미드저니 루프(Loop) 기능에서 시작과 끝이 이어지는 무한 반복 영상 생성용",
+        "제품 360도 회전, 감성 배경 루프 등에 활용",
+        "perfume -> skincare bottle, wine bottle 등으로 제품 변경 가능"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "아트 포트레이트 (sref 활용)",
+      "tags": [
+        "포트레이트",
+        "아트",
+        "컬러풀",
+        "sref"
+      ],
+      "ar": "3:4",
+      "prompt": "Portrait of a man in strong sunlight, strong contrast of orange, yellow, cobalt blue, turquoise, face close-up, composition looking up from below, wide-brimmed yellow hat and cobalt red sunglasses, orange skin tone and red lips, green background, colorful floral costume, dynamic and lively portrait --ar 3:4 --sref 1699911579 --style raw --v 7",
+      "analysis": {
+        "subject": "남성 얼굴 클로즈업 포트레이트",
+        "description": "오렌지 피부톤, 빨간 입술, 넓은 챙 노란 모자, 코발트 레드 선글라스, 꽃무늬 의상",
+        "composition": "3:4 비율, 아래에서 위로 올려다보는 앵글 (looking up from below)",
+        "lighting": "강한 햇빛 (strong sunlight), 하이 콘트라스트",
+        "mood": "역동적(dynamic), 생동감(lively), 대담한 색채",
+        "camera": "암시적 (클로즈업 + 로우앵글)",
+        "style": "아트 포트레이트, 컬러풀, 팝아트적",
+        "parameters": "--ar 3:4 --sref 1699911579 --style raw --v 7"
+      },
+      "tips": [
+        "sref는 스타일 참조 코드로, 특정 아트 스타일을 재현할 때 사용",
+        "sref 1699911579는 인기 스타일 코드 (팝아트/컬러풀 계열)",
+        "SNS 프로필 이미지, 아트 프린트, 브랜딩 소재에 활용"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "한국 여성 프로필 (omni 참조)",
+      "tags": [
+        "포트레이트",
+        "프로필",
+        "스튜디오",
+        "omni"
+      ],
+      "ar": "3:4",
+      "prompt": "a photo of an extremely beautiful Korean girl, taking profile photo in the studio with long black hair and wearing white shirt, natural lighting, she has round face shape, big eyes, fair skin tone, high quality, ultra real skin --ar 3:4 --style raw --ow 800",
+      "analysis": {
+        "subject": "아름다운 한국 여성, 프로필 사진",
+        "description": "긴 검은 머리, 흰 셔츠, 둥근 얼굴, 큰 눈, 밝은 피부톤, 사실적 피부",
+        "composition": "3:4 비율, 프로필(측면/반측면) 앵글",
+        "lighting": "자연 조명 (natural lighting)",
+        "mood": "깨끗함, 자연스러움, 고급스러움",
+        "camera": "암시적 (스튜디오 촬영)",
+        "style": "사실적 포트레이트 (ultra real skin)",
+        "parameters": "--ar 3:4 --style raw --ow 800"
+      },
+      "tips": [
+        "ow 800은 옴니 참조 강도로, -oref와 함께 사용하여 참조 이미지의 인물을 다른 장면에서 재현",
+        "너무 높은 -ow 값(900+)은 왜곡 가능성이 있으므로 100~800 범위 권장",
+        "다양한 배경/의상/상황에서 동일 인물을 유지하는 시리즈 콘텐츠 제작에 핵심"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "제주 아웃도어 패션 촬영",
+      "tags": [
+        "패션",
+        "아웃도어",
+        "빈티지필름",
+        "제주"
+      ],
+      "ar": "3:4",
+      "prompt": "A candid outdoor fashion photoshoot of a beautiful young Korean woman in Jeju Island nature, holding a fresh tangerine casually, soft vintage film aesthetic, dreamy pastel tones, delicate and airy atmosphere, styled in a cute casual outfit with a natural and charming vibe, surrounded by Jeju's coastal landscape with wild grass, stonewalls, and distant sea, sunlight filtered softly like late afternoon, natural glowing skin with visible texture, playful and refreshing mood, captured like a lifestyle magazine editorial, shallow depth of field, ultra high quality, 10K DSLR film style capture --ar 3:4 --style raw --ow 800 --v 7",
+      "analysis": {
+        "subject": "아름다운 한국 여성, 제주도 자연 속 캔디드 패션 촬영",
+        "description": "감귤을 캐주얼하게 들고 있음, 자연스러운 피부 질감, 귀여운 캐주얼 의상",
+        "composition": "3:4 비율, 캔디드(자연스러운) 포즈, 얕은 심도",
+        "lighting": "늦은 오후 부드러운 햇빛 (sunlight filtered softly like late afternoon)",
+        "mood": "장난스럽고 상쾌함, 몽환적, 섬세함",
+        "camera": "10K DSLR 필름 스타일 (빈티지 필름 색감 유도)",
+        "style": "라이프스타일 매거진 에디토리얼, 소프트 빈티지 필름",
+        "parameters": "--ar 3:4 --style raw --ow 800 --v 7"
+      },
+      "tips": [
+        "Jeju Island -> Santorini, Paris streets, Tokyo alley 등으로 장소 변경하면 다양한 로케이션 촬영 가능",
+        "soft vintage film aesthetic + dreamy pastel tones는 인스타그램에서 인기 있는 색감 조합",
+        "라이프스타일 브랜드, 여행 콘텐츠, 패션 룩북 제작에 활용"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "모델 화보 촬영",
+      "tags": [
+        "제품촬영",
+        "모델",
+        "매거진",
+        "Y2K"
+      ],
+      "ar": "249:256",
+      "prompt": "close-up of a happy woman drinking matcha on a white background. the green drink is in a plastic cup with a straw. she has beautiful skin, freckles, and brown curly hair. she is wearing golden earrings, and the image has a sunlight effect. this editorial photography was shot on film in the style of testino photoshoots, with a flashlight effect, minimalism, and a y2k aesthetic, resembling a fashion magazine cover --ar 249:256 --raw",
+      "analysis": {
+        "subject": "인물 모델 촬영",
+        "description": "빛 효과, 자연광, 말차 드링크, 골든 이어링",
+        "composition": "249:256 (거의 정사각형 클로즈업)",
+        "lighting": "시네마틱 라이팅, 플래시라이트 효과",
+        "mood": "프리미엄, 우아함, 다이나믹, Y2K 감성",
+        "camera": "8K 해상도, 테스티노 스타일 필름 촬영",
+        "style": "프리미엄 패션 카탈로그, 울트라 리얼리스틱",
+        "parameters": "--ar 249:256 --raw"
+      },
+      "tips": [
+        "말차 대신 아이스 라떼, 에이드 등으로 교체하여 카페 광고에 응용",
+        "y2k aesthetic, testino photoshoots 키워드가 트렌디한 잡지 표지 느낌 연출"
+      ]
+    },
+    {
+      "id": 9,
+      "title": "럭셔리 스킨케어 뷰티 세럼",
+      "tags": [
+        "뷰티",
+        "스킨케어",
+        "매크로",
+        "광고"
+      ],
+      "ar": "1:1",
+      "prompt": "ultra realistic beauty skincare portrait of a woman applying serum with a glass dropper, glowing hydrated skin, visible pores, natural freckles, minimal makeup, glossy lips, luxury skincare campaign photography, macro beauty shot, soft studio lighting, neutral background, photorealistic skin texture, high-end cosmetic advertisement --ar 1:1 --s 350 --v 7",
+      "analysis": {
+        "subject": "세럼을 스포이드로 바르는 여성 스킨케어 뷰티 포트레이트",
+        "description": "촉촉하게 빛나는 피부, 보이는 모공, 자연스러운 주근깨, 글로시 립, 최소 메이크업",
+        "composition": "얼굴 중심 매크로 클로즈업 뷰티 샷",
+        "lighting": "소프트 스튜디오 라이팅 (soft diffused studio light)",
+        "mood": "럭셔리, 깨끗함, 하이엔드 스킨케어 캠페인",
+        "camera": "매크로 뷰티 촬영 스타일 (high-detail skin texture)",
+        "style": "럭셔리 코스메틱 광고 / 포토리얼 뷰티 포트레이트",
+        "parameters": "--ar 1:1 --s 350 --v 7"
+      },
+      "tips": [
+        "매크로 뷰티 샷은 스킨케어 광고에서 피부 질감을 강조할 때 효과적",
+        "glowing hydrated skin 키워드는 촉촉한 피부 표현을 강화",
+        "visible pores, natural freckles를 넣으면 리얼 스킨 텍스처 표현 가능",
+        "세럼 대신 cream, essence, ampoule, face oil 등으로 변경 가능"
+      ]
+    },
+    {
+      "id": 10,
+      "title": "남성 스킨케어 제품 광고",
+      "tags": [
+        "뷰티",
+        "제품광고",
+        "스튜디오",
+        "브랜드"
+      ],
+      "ar": "1:1",
+      "prompt": "a tube of all in men broad-spectrum brilliant skin cream on an orange and white geometric background, beauty product ad photography, high resolution, detailed textures, studio lighting, modern design --ar 1:1 --s 350 --v 7",
+      "analysis": {
+        "subject": "남성 스킨케어 크림 튜브 제품",
+        "description": "오렌지와 화이트의 기하학적 배경, 제품 중심 배치, 선명한 텍스처",
+        "composition": "제품 단독 중심 구도 (product hero shot)",
+        "lighting": "클린한 스튜디오 조명으로 제품 하이라이트 강조",
+        "mood": "모던, 미니멀, 세련된 뷰티 광고",
+        "camera": "제품 광고 촬영 스타일 (product macro detail)",
+        "style": "하이엔드 스킨케어 제품 광고 사진",
+        "parameters": "--ar 1:1 --s 350 --v 7"
+      },
+      "tips": [
+        "지오메트릭 배경은 뷰티 제품 광고에서 브랜드 컬러를 강조할 때 효과적",
+        "orange 컬러는 에너지·남성 스킨케어 브랜드 이미지에 자주 사용",
+        "배경 색상을 beige, mint, black 등으로 변경해 다양한 브랜드 무드 제작 가능"
+      ]
+    },
+    {
+      "id": 11,
+      "title": "프리미엄 웰니스 보충제 스틸라이프",
+      "tags": [
+        "헬스케어",
+        "제품광고",
+        "스틸라이프",
+        "웰니스"
+      ],
+      "ar": "1:1",
+      "prompt": "NHC natural health co supplements still life, curated vitamin bottles, powders, capsules, regimen stacks, coral labels and accents, seafoam green display planes, deep saturated dark green grounding elements, clean white negative space, structured organic composition, rounded shapes, premium apothecary retail styling, matte textures, clear and organized, modern wellness campaign image --ar 1:1 --s 350 --v 7",
+      "analysis": {
+        "subject": "웰니스 보충제 제품 스틸라이프 (비타민 병, 파우더, 캡슐)",
+        "description": "코럴 라벨, 씨폼 그린 디스플레이 플레인, 다크 그린 베이스 요소, 화이트 네거티브 스페이스",
+        "composition": "정돈된 레지멘 스택 구성, 구조적이면서 유기적인 제품 배치",
+        "lighting": "클린한 스튜디오 라이팅으로 매트 텍스처와 제품 형태 강조",
+        "mood": "프리미엄, 클린, 모던 웰니스 브랜드 무드",
+        "camera": "제품 중심 스틸라이프 촬영 스타일",
+        "style": "프리미엄 apothecary 리테일 스타일 / 웰니스 캠페인 이미지",
+        "parameters": "--ar 1:1 --s 350 --v 7"
+      },
+      "tips": [
+        "레지멘 스택(regimen stacks) 구성은 건강보조식품 브랜드 광고에서 많이 쓰는 스타일",
+        "coral + seafoam green + dark green 조합은 웰니스 브랜드 컬러 팔레트로 활용하기 좋음",
+        "clean white negative space를 넣으면 브랜드 캠페인 느낌의 미니멀 제품 사진 생성 가능"
+      ]
+    },
+    {
+      "id": 12,
+      "title": "패션 액세서리 레그 클로즈업 - 캐시미어 삭스",
+      "tags": [
+        "패션",
+        "클로즈업",
+        "룩북",
+        "스튜디오"
+      ],
+      "ar": "1:1",
+      "prompt": "a model wearing light Pink plain cashmere over-the-knee socks, Black heels, and a light blue blazer with a shoulder bag, against a white background. this is a fashion photography close-up shot of the model's legs --ar 1:1 --s 350 --v 7",
+      "analysis": {
+        "subject": "캐시미어 오버니 삭스를 착용한 모델의 레그 패션 샷",
+        "description": "연핑크 캐시미어 삭스, 블랙 하이힐, 라이트 블루 블레이저, 숄더백",
+        "composition": "모델 다리 중심 클로즈업 (legs close-up shot)",
+        "lighting": "클린한 스튜디오 조명",
+        "mood": "미니멀, 세련된 패션 룩북 스타일",
+        "camera": "패션 포토그래피 클로즈업 촬영",
+        "style": "패션 룩북 / 패션 광고 스타일",
+        "parameters": "--ar 1:1 --s 350 --v 7"
+      },
+      "tips": [
+        "legs close-up shot은 패션 액세서리(삭스, 스타킹, 신발) 광고에 많이 사용되는 구도",
+        "white background는 룩북 / 이커머스 패션 촬영의 기본 스타일",
+        "heels 대신 loafers, boots, sneakers로 스타일링 변경 가능"
+      ]
+    },
+    {
+      "id": 13,
+      "title": "반려견 건강 교육 애니메이션 장면",
+      "tags": [
+        "애니메이션",
+        "반려동물",
+        "3D",
+        "교육"
+      ],
+      "ar": "3:4",
+      "prompt": "cute dog sitting on a carpet scratching its neck with the back paw, showing discomfort but still adorable, owner noticing the scratching and looking concerned, cozy living room environment with warm lighting side view capturing both dog and owner interaction, veterinary educational moment 3D cartoon animation style, disney pixar inspired animated movie scene, stylized characters, soft rounded shapes, expressive animated eyes, vibrant colors, cinematic lighting, ultra detailed stylized fur, high quality animated film render --ar 3:4 --s 400 --v 7",
+      "analysis": {
+        "subject": "목을 긁는 강아지와 이를 걱정하는 보호자",
+        "description": "카펫 위에 앉아 뒷발로 목을 긁는 강아지, 보호자의 걱정스러운 표정",
+        "composition": "사이드 뷰 구도로 강아지와 보호자의 상호작용 포착",
+        "lighting": "따뜻한 거실 조명 (warm cozy indoor lighting)",
+        "mood": "귀엽고 교육적인 반려동물 건강 상황",
+        "camera": "애니메이션 영화 장면 스타일의 시네마틱 프레이밍",
+        "style": "디즈니·픽사 스타일 3D 카툰 애니메이션",
+        "parameters": "--ar 3:4 --s 400 --v 7"
+      },
+      "tips": [
+        "반려동물 건강 콘텐츠(피부 가려움, 벼룩, 알러지 등) 설명 이미지로 활용 가능",
+        "Disney Pixar inspired 스타일은 친근하고 교육적인 애니메이션 비주얼에 적합",
+        "cozy living room 대신 vet clinic, pet shop, park 등으로 배경 변경 가능"
+      ]
+    },
+    {
+      "id": 14,
+      "title": "미니멀 모던 2층 빌라 외관",
+      "tags": [
+        "건축",
+        "외관",
+        "모던",
+        "야경"
+      ],
+      "ar": "3:4",
+      "prompt": "a modern, minimalist two-story small villa features white walls and gray metal doors, combined with dark wood grain accents. the upper floor has large windows overlooking the street below, while green plants create an outdoor balcony effect on the second story of the building. in front, a garage door is decorated in a modern design. at night, warm lights illuminate part of the exterior wall, conveying elegance through simplicity and modernity --ar 3:4 --s 350 --v 7",
+      "analysis": {
+        "subject": "미니멀 모던 스타일 2층 소형 빌라",
+        "description": "화이트 벽, 그레이 메탈 도어, 다크 우드 그레인 포인트, 대형 창문, 발코니 식물",
+        "composition": "거리에서 바라본 정면 외관 구도",
+        "lighting": "밤 시간대 따뜻한 외부 조명으로 건물 일부를 강조",
+        "mood": "세련됨, 단순함 속의 우아함, 현대적 주거 공간",
+        "camera": "건축 사진 스타일 외관 촬영",
+        "style": "미니멀 모던 건축 디자인",
+        "parameters": "--ar 3:4 --s 350 --v 7"
+      },
+      "tips": [
+        "night architectural lighting은 건축 렌더 이미지에서 분위기 연출에 효과적",
+        "white + gray + dark wood 조합은 모던 주택 디자인의 대표적인 컬러 팔레트",
+        "낮 장면으로 바꾸려면 daylight, clear sky 키워드 추가 가능"
+      ]
+    },
+    {
+      "id": 15,
+      "title": "사막 에디토리얼 패션 포트레이트",
+      "tags": [
+        "패션",
+        "에디토리얼",
+        "포트레이트",
+        "내추럴"
+      ],
+      "ar": "3:4",
+      "prompt": "slavic woman, long natural white-blonde hair styled in a soft braided hairstyle with small front braids and loose strands moving in the wind, natural green eyes, natural skin with realistic skin texture and visible pores, realistic hair strands, wearing a modern elegant sand-colored linen dress with long voluminous sleeves, gathered waist and a flowing layered skirt, natural fabric texture and soft fabric movement, sitting in a minimal desert landscape with pale sand and soft rock formations, clear blue sky, warm natural sunlight illuminating the face, soft shadows on the sand, neutral beige and sand tones, calm elegant pose, editorial fashion styling, editorial fashion photography, ARRI Alexa 65, 8k, hyperrealism --ar 3:4 --s 400 --v 7",
+      "analysis": {
+        "subject": "사막 배경 속 린넨 드레스를 입은 여성 패션 포트레이트",
+        "description": "화이트 블론드 브레이드 헤어, 자연스러운 그린 눈, 리얼한 피부 텍스처와 모공, 바람에 움직이는 머리카락",
+        "composition": "사막 풍경 속에 앉아 있는 모델 중심 포트레이트 구도",
+        "lighting": "따뜻한 자연광 (warm natural sunlight)",
+        "mood": "차분함, 우아함, 자연적이고 미니멀한 에디토리얼 분위기",
+        "camera": "ARRI Alexa 65 시네마 카메라 스타일",
+        "style": "하이엔드 패션 에디토리얼 포토그래피",
+        "parameters": "--ar 3:4 --s 400 --v 7"
+      },
+      "tips": [
+        "linen dress, natural fabric texture 키워드는 자연 소재 패션 브랜드 이미지 제작에 유리",
+        "desert minimal landscape는 패션 에디토리얼에서 자주 쓰이는 미니멀 배경",
+        "sand tones, neutral beige palette는 패션 브랜드 룩북 컬러 톤으로 활용 가능"
+      ]
+    },
+    {
+      "id": 16,
+      "title": "브랜드 제품 - 라벨 디자인 대비",
+      "tags": [
+        "브랜딩",
+        "제품",
+        "에디토리얼",
+        "컨셉"
+      ],
+      "ar": "3:4",
+      "prompt": "Extreme close crop of two 500ml glass condiment bottle labels side by side, filling the entire frame edge to edge. No cap visible, no base, no surface below just label face against label face with a thin gap between them. Shot flat on, perfectly perpendicular, both labels equally sharp across the frame. Left label: warm terracotta colorblock, clean serif logotype 오파독 large, short italic tagline below, minimal tomato illustration in one corner. Designed for human eyes. Paper texture visible, slight label curl at one edge. Right label: stark white, monospaced typeface throughout, pure field-value structure in small tight type category: condiment / tomato format: 500ml glass allergens: none certifications: organic, non-GMO nutriscore: A agent_ranking: 1 no color, no illustration, information hierarchy only. The label looks generated, not designed. The gap between them is 8mm. That gap is the entire argument. Style reference image 1: AR rendered environment aesthetic for any background bleed or depth warm resolved surface just barely visible at label edges. Style reference image 2: tactile editorial product photography, Kodak Portra 400 lifted shadows, natural grain, label paper texture physically present, analog warmth throughout. Both labels feel touchable --ar 3:4 --s 400 --v 7",
+      "analysis": {
+        "subject": "두 개의 콘디먼트 병 라벨을 통한 브랜드 vs 데이터 디자인 대비",
+        "description": "왼쪽 테라코타 컬러 브랜드 라벨 / 오른쪽 모노스페이스 데이터 라벨",
+        "composition": "극단적인 클로즈 크롭, 라벨이 프레임을 완전히 채우는 정면 촬영",
+        "lighting": "부드러운 에디토리얼 스튜디오 조명",
+        "mood": "실험적, 디자인 컨셉 중심, 에디토리얼 제품 사진",
+        "camera": "평행한 정면 촬영 (perfectly perpendicular flat shot)",
+        "style": "Kodak Portra 400 감성의 촉각적인 에디토리얼 제품 사진",
+        "parameters": "--ar 3:4 --s 400 --v 7"
+      },
+      "tips": [
+        "브랜딩 vs 정보 디자인 대비를 시각적으로 보여주는 컨셉 이미지 제작 가능",
+        "terracotta label은 따뜻한 브랜드 감성 표현에 적합",
+        "extreme close crop을 사용하면 라벨 타이포그래피 디테일 강조 가능"
+      ]
+    },
+    {
+      "id": 17,
+      "title": "피치 매트 립스틱 뷰티 클로즈업",
+      "tags": [
+        "뷰티",
+        "매크로",
+        "메이크업",
+        "광고"
+      ],
+      "ar": "1:1",
+      "prompt": "a close-up shot of the lips with an elegant, matte lipstick in a peach-toned color being applied by hand. the soft lighting accentuates the textures and colors, creating a detailed and captivating portrait. a beauty product advertisement in high resolution, showcasing a smooth skin tone and a glossy finish. the focus is on natural-looking makeup for an inviting appearance --ar 1:1 --s 350 --v 7",
+      "analysis": {
+        "subject": "피치 톤 매트 립스틱을 바르는 입술 클로즈업",
+        "description": "손으로 립스틱을 바르는 순간, 자연스러운 피부 톤, 매끄러운 입술 질감",
+        "composition": "입술 중심 매크로 클로즈업 뷰티 샷",
+        "lighting": "부드러운 소프트 뷰티 라이팅",
+        "mood": "우아함, 자연스러운 아름다움, 세련된 뷰티 광고",
+        "camera": "매크로 뷰티 포트레이트 촬영",
+        "style": "하이엔드 코스메틱 광고 사진",
+        "parameters": "--ar 1:1 --s 350 --v 7"
+      },
+      "tips": [
+        "lip macro shot은 립 제품 광고에서 가장 많이 사용되는 구도",
+        "peach-toned lipstick은 내추럴 메이크업 브랜드 이미지에 적합",
+        "matte, glossy, velvet finish 등으로 립 제품 질감 변경 가능"
+      ]
+    },
+    {
+      "id": 18,
+      "title": "럭셔리 핸드백 시네마틱 에디토리얼",
+      "tags": [
+        "패션",
+        "럭셔리",
+        "제품사진",
+        "에디토리얼"
+      ],
+      "ar": "4:5",
+      "prompt": "Cinematic natural-light luxury accessory photograph of a premium handbag in deep emerald leather (alternative options: obsidian black, porcelain white, midnight sapphire). Precise proportions and structurally balanced construction clearly visible without artificial perfection. The leather shows authentic natural grain variation, subtle organic irregularities, soft tension near folds, realistic edge thickness. No pattern repetition. Stitching is clean and evenly spaced with slight natural thread variation. Edges maintain structure with believable material resistance. The handbag rests naturally on a matte mineral stone surface. Subtle compression at contact points. Soft contact shadows anchor the object physically. Minimal editorial background with calm negative space. Clean and restrained neutral background with soft tonal gradient and atmospheric depth. No studio void effect. Lighting is natural and physically grounded: large north-facing window diffused through silk, shaping volume with soft directional modeling. Gentle bounced fill maintains midtone integrity. Extremely controlled reflections broad and diffused, never sharp. Smooth highlight roll-off. No HDR look. Shot on 70-85mm lens. Natural perspective compression. Full object clarity with subtle optical falloff toward background. Balanced micro-contrast. Slight natural highlight bloom. Color grading is restrained and premium. True material color response. Controlled dynamic range. Slightly muted saturation. Subtle organic film grain. Atmosphere of quiet authority and tactile presence. Photographed realism, not CGI perfection --ar 4:5 --s 300 --v 7",
+      "analysis": {
+        "subject": "딥 에메랄드 가죽 프리미엄 핸드백",
+        "description": "자연스러운 가죽 그레인, 미세한 불규칙성, 균일한 스티치, 현실적인 가장자리 두께와 소재 장력",
+        "composition": "미네랄 스톤 위 정적인 제품 구도, 넓은 네거티브 스페이스",
+        "lighting": "북향 창 자연광 + 실크 디퓨전, 부드러운 방향광과 반사광",
+        "mood": "고요함, 권위 있는 럭셔리, 촉각적인 존재감",
+        "camera": "70-85mm 렌즈, 자연스러운 원근 압축",
+        "style": "하이엔드 패션 에디토리얼 제품 사진",
+        "parameters": "--ar 4:5 --s 300 --v 7"
+      },
+      "tips": [
+        "natural light editorial lighting은 럭셔리 브랜드에서 많이 사용하는 촬영 방식",
+        "mineral stone surface는 고급 소재 대비를 만들어 제품 존재감을 강화",
+        "film grain과 muted saturation을 넣으면 광고보다 매거진 화보 느낌 강화"
+      ]
+    },
+    {
+      "id": 19,
+      "title": "초현실 보태니컬 패션 에디토리얼",
+      "tags": [
+        "패션",
+        "초현실",
+        "에디토리얼",
+        "콘셉트"
+      ],
+      "ar": "2:3",
+      "prompt": "surreal giant flower landscape, asian fashion model walking through enormous flowers and plants, minimal field landscape, dreamlike scale contrast, bright natural light, high fashion editorial, cinematic composition, ultra detailed botanical textures, realistic skin texture --ar 2:3 --s 450 --v 7",
+      "analysis": {
+        "subject": "거대한 꽃 사이를 걷는 아시아 패션 모델",
+        "description": "초대형 꽃과 식물, 미니멀한 필드 풍경, 섬세한 식물 텍스처",
+        "composition": "인물과 거대한 식물의 스케일 대비 중심 시네마틱 구도",
+        "lighting": "밝은 자연광 (bright natural daylight)",
+        "mood": "몽환적, 초현실적, 하이패션 콘셉트",
+        "camera": "패션 에디토리얼 촬영 스타일, 인물 중심",
+        "style": "하이패션 매거진 에디토리얼",
+        "parameters": "--ar 2:3 --s 450 --v 7"
+      },
+      "tips": [
+        "giant scale contrast는 패션 화보에서 자주 쓰이는 초현실적 연출",
+        "flower landscape를 mushrooms, crystals, paper sculptures 등으로 바꾸면 다양한 콘셉트 제작 가능",
+        "bright natural light는 패션 화보에서 컬러와 소재 질감 표현에 유리"
+      ]
+    },
+    {
+      "id": 20,
+      "title": "파스텔 립 틴트 스카이 광고 비주얼",
+      "tags": [
+        "뷰티",
+        "제품광고",
+        "일러스트",
+        "파스텔"
+      ],
+      "ar": "1:1",
+      "prompt": "clear bright sky blue background with soft floating white clouds, two horizontal polished silver chains stretched across the frame in the sky, a pastel pink lip tint bottle slightly tilted diagonally positioned between the chains as the main focus, sleek transparent rounded rectangular bottle with soft rounded square edges filled with glossy pastel pink liquid inside, reflective metallic cap catching soft bright light, small pastel pink heart-shaped gel objects floating softly in the background like distant charms, wide open sky composition with lots of negative space, bright airy atmosphere with playful romantic mood, soft pastel color palette, digital illustration, ultra clean high resolution rendering with smooth gradients and crisp metallic reflections --ar 1:1 --s 400 --v 7",
+      "analysis": {
+        "subject": "파스텔 핑크 립 틴트 보틀",
+        "description": "투명 라운드 직사각형 보틀, 글로시 핑크 액체, 메탈 캡 반사",
+        "composition": "하늘 배경 중앙에 대각선으로 배치된 제품 + 가로 실버 체인",
+        "lighting": "밝고 깨끗한 소프트 데이라이트",
+        "mood": "밝음, 경쾌함, 로맨틱, 플레이풀",
+        "camera": "제품 중심 광고 구도",
+        "style": "초고해상도 디지털 일러스트 제품 광고",
+        "parameters": "--ar 1:1 --s 400 --v 7"
+      },
+      "tips": [
+        "sky background + floating objects는 뷰티 광고에서 제품을 강조하는 인기 구도",
+        "heart gel objects -> stars, sparkles, lip gloss droplets 등으로 변형 가능",
+        "silver chain은 Y2K / 젠지 뷰티 브랜드 감성을 만들 때 효과적"
+      ]
+    }
+  ],
+  "camera_presets": [
+    {
+      "use": "포트레이트 / 인물",
+      "gear": "Sony A7R IV + 85mm f/1.4",
+      "effect": "얕은 심도, 부드럽고 풍부한 인물 보케"
+    },
+    {
+      "use": "제품 촬영 / 광고",
+      "gear": "Phase One IQ4 + 120mm macro",
+      "effect": "극한의 텍스처 디테일, 미디엄 포맷 퀄리티"
+    },
+    {
+      "use": "풍경 / 와이드",
+      "gear": "Nikon D850 + 14-24mm f/2.8",
+      "effect": "넓은 화각, 풍부한 다이나믹 레인지"
+    },
+    {
+      "use": "원거리 / 야생동물",
+      "gear": "Nikon D850 + 600mm f/4",
+      "effect": "배경 압축 효과, 원거리 선명 포착"
+    },
+    {
+      "use": "매크로 / 초근접",
+      "gear": "Sony A7R IV + 90mm macro",
+      "effect": "높은 확대비, 정밀한 디테일 보케"
+    },
+    {
+      "use": "스트리트 / 스냅",
+      "gear": "Leica M11 + 35mm f/1.4",
+      "effect": "클래식 스트리트 룩, 라이카 특유의 선명 디테일"
+    }
+  ],
+  "film_presets": [
+    {
+      "name": "Kodak Portra 400",
+      "char": "따뜻한 스킨톤, 뮤트 하이라이트, 유기적 그레인",
+      "best_for": "포트레이트, 시네마틱 화보"
+    },
+    {
+      "name": "Fuji Superia X-TRA 400",
+      "char": "차가운 톤, 약간 언더노출, 강한 대비",
+      "best_for": "다큐멘터리, 스트리트 스냅"
+    },
+    {
+      "name": "Kodak Ektar 100",
+      "char": "높은 채도, 선명한 색상, 초미세 그레인",
+      "best_for": "풍경, 자연, 여행 사진"
+    },
+    {
+      "name": "Ilford HP5 Plus",
+      "char": "흑백, 풍부한 계조 톤, 중간 그레인",
+      "best_for": "아트, 클래식 포토그래피"
+    },
+    {
+      "name": "Fuji Velvia 50",
+      "char": "극도로 높은 채도, 파란 하늘, 빨간 톤 강조",
+      "best_for": "풍경, 강렬한 색감"
+    },
+    {
+      "name": "Cinestill 800T",
+      "char": "텅스텐 밸런스, 네온 할레이션(빛번짐)",
+      "best_for": "야간, 네온, 시네마틱 무디"
+    }
+  ],
+  "quality_anchors": [
+    {
+      "name": "commercial advertising quality",
+      "field": "제품 / 상업 광고"
+    },
+    {
+      "name": "Vogue magazine quality",
+      "field": "패션 / 뷰티 매거진"
+    },
+    {
+      "name": "National Geographic quality",
+      "field": "자연 / 풍경 / 야생동물"
+    },
+    {
+      "name": "architectural digest quality",
+      "field": "인테리어 / 건축"
+    },
+    {
+      "name": "high-end jewelry catalog style",
+      "field": "주얼리 / 럭셔리"
+    },
+    {
+      "name": "automotive magazine quality",
+      "field": "자동차 / 가젯"
+    }
+  ],
+  "parameter_recipes": [
+    {
+      "purpose": "사실적 제품 촬영",
+      "params": "--style raw --q 2 --s 0~250"
+    },
+    {
+      "purpose": "아트 / 일러스트",
+      "params": "--s 500~750 --q 2"
+    },
+    {
+      "purpose": "시네마틱 필름 룩",
+      "params": "--style raw --ar 16:9 또는 --ar 21:9"
+    },
+    {
+      "purpose": "다큐멘터리 / 스트리트",
+      "params": "--style raw --s 0 --ar 3:2"
+    },
+    {
+      "purpose": "빈티지 / 레트로",
+      "params": "--style raw --stylize 0 --ar 3:2"
+    },
+    {
+      "purpose": "판타지 / 컨셉 아트",
+      "params": "--s 700+ --q 2 --c 5~15"
+    },
+    {
+      "purpose": "실험적 / 독창적",
+      "params": "--chaos 20~50 --s 500+"
+    }
+  ]
+}
